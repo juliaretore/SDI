@@ -9,14 +9,10 @@ import java.net.MulticastSocket;
 import java.net.Socket;
 
 public class ServerThread extends Thread {
-
     MulticastSocket socket = null;
     DatagramPacket inPacket = null;
     byte[] inBuf = new byte[256];
 
-    // public ServerThread(Socket clientSocket) {
-    // this.clientSocket = clientSocket;
-    // }
     @SuppressWarnings("deprecation")
     public void run() {
         try {
@@ -29,9 +25,7 @@ public class ServerThread extends Thread {
                 socket.receive(inPacket);
                 String msg = new String(inBuf, 0, inPacket.getLength());
                 System.out.println(msg);
-
             }
-            // Close the output stream, close the input stream, close the socket.
         } catch (IOException e) {
         }
     }
